@@ -1,0 +1,31 @@
+# Python 生成的文件
+__pycache__/
+*.py[cod]
+*.so
+
+# 包分发/安装
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 虚拟环境
+venv/
+ENV/
+
+# IDE 相关
+.vscode/
+.idea/
+
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
