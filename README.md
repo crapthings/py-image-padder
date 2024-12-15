@@ -1,3 +1,5 @@
+[![Publish Python Package](https://github.com/crapthings/py-image-padder/actions/workflows/workflow.yml/badge.svg)](https://github.com/crapthings/py-image-padder/actions/workflows/workflow.yml)
+
 # Image Padder
 
 Image Padder is a command-line tool for batch processing image files. It can pad images to a specified aspect ratio, resize them, and supports custom background colors.
