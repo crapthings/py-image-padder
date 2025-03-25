@@ -3,7 +3,7 @@ import sys
 import argparse
 import random
 import string
-from PIL import Image
+from PIL import Image, ImageOps
 from tqdm import tqdm
 
 def pad_image(image, target_ratio, bg_color):
@@ -28,6 +28,9 @@ def pad_image(image, target_ratio, bg_color):
 def process_images(input_folder, ratio, bg_color, output_size):
     supported_formats = ('.jpg', '.jpeg', '.png', '.webp', '.avif')
 
+    # 删除输入文件夹路径末尾的 "/"
+    input_folder = input_folder.rstrip('/')
+
     # 创建输出文件夹
     random_suffix = ''.join(random.choices(string.ascii_lowercase, k=3))
     output_folder = f"{input_folder}_padded_{random_suffix}"
@@ -41,6 +44,9 @@ def process_images(input_folder, ratio, bg_color, output_size):
         input_path = os.path.join(input_folder, filename)
         
         with Image.open(input_path) as img:
+            # 纠正图片方向
+            img = ImageOps.exif_transpose(img)
+            
             padded_img = pad_image(img, ratio, bg_color)
             
             if output_size:
